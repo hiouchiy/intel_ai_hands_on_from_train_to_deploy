@@ -1,8 +1,8 @@
 {
     "model": {
-        "model_name": "mobilenet_int8",
-        "model": "saved_model.xml",
-        "weights": "saved_model.bin"
+        "model_name": "resnet50_int8",
+        "model": "resnet50_fp32.xml",
+        "weights": "resnet50_fp32.bin"
     },
     "engine": {
         "launchers": [
@@ -14,10 +14,10 @@
         ],
         "datasets": [{
             "name": "classification_dataset",
-            "data_source": "/root/intel_ai_openvino_hands_on/train_data/val_int8",
+            "data_source": "train_data/val_int8",
             "annotation_conversion": {
                   "converter": "imagenet",
-                  "annotation_file": "/root/intel_ai_openvino_hands_on/train_data/val_int8.txt"
+                  "annotation_file": "train_data/val_int8.txt"
             },
             "reader": "pillow_imread",
             "preprocessing":[
