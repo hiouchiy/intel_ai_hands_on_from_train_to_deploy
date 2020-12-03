@@ -36,7 +36,7 @@ https://docs.docker.jp/docker-for-mac/install.html
 docker pull openvino/ubuntu18_dev
 ```
 #### Dockerコンテナの起動
-コンテナはRootで起動します。また、8888番ポートをホストOSとコンテナとでバインドしておきます。
+コンテナはRootで起動します。また、8888番ポートをホストOSとコンテナとでバインドしておきます。かつ、ホストのディレクトリ（~/workspace）とコンテナのディレクトリ（/workspace）をバインドすることも忘れずに。作成したモデルファイルの受け渡しに使います。
 ```Bash
 cd ~
 mkdir workspace
