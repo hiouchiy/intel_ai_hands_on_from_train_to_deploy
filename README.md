@@ -1,5 +1,5 @@
 # インテル® AI - 学習からモデルデプロイまでの一連処理
-OpenVINOを使って白黒画像を自動で色付けするアプリをさくっと作ってみます。
+TensorFlowでモデルを作り、OpenVINOで最適化／量子化を施し、OpenVINO Model Serverでデプロイします。
  
 ## Getting Started / スタートガイド
 ### Prerequisites / 必要条件
