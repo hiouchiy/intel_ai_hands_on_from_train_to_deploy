@@ -35,6 +35,10 @@ https://docs.docker.jp/docker-for-mac/install.html
 ```Bash
 docker pull openvino/ubuntu18_dev
 ```
+または、ソフトウェアがプリインストールされたこちらのイメージでも結構です。
+```Bash
+docker pull hiouchiy/openvino_2021r1_handson
+```
 #### Dockerコンテナの起動
 コンテナはRootで起動します。また、8888番ポートをホストOSとコンテナとでバインドしておきます。かつ、ホストのディレクトリ（~/workspace）とコンテナのディレクトリ（/workspace）をバインドすることも忘れずに。作成したモデルファイルの受け渡しに使います。
 ```Bash
@@ -42,8 +46,15 @@ cd ~
 mkdir workspace
 docker run -it -u 0 --privileged -v ~/workspace:/workspace -p 8888:8888 openvino/ubuntu18_dev:latest /bin/bash
 ```
+または
+```Bash
+cd ~
+mkdir workspace
+docker run -it -u 0 --privileged -v ~/workspace:/workspace -p 8888:8888 hiouchiy/openvino_2021r1_handson /bin/bash
+```
 以降はコンテナ上での作業になります。
 #### 追加モジュールのインストール
+**注意**:プリインストールのコンテナイメージを使う場合はこの作業はスキップできます。
 ```Bash
 apt-get update
 apt-get install -y wget unzip git sudo
@@ -51,8 +62,6 @@ apt-get install -y ubuntu-restricted-extras　
 (※↑でEULAにacceptを求められるのでyesと入力)
 apt-get install -y ffmpeg
 pip install jupyterlab munkres
-pip uninstall tensorflow
-pip install intel-tensorflow
 ```
 #### 本レポジトリをClone
 ```Bash
@@ -111,6 +120,7 @@ docker run --rm -d -p 9000:9000 -e AZURE_STORAGE_CONNECTION_STRING="%AZURE_STORA
 docker run --rm -d -p 9000:9000 -e AZURE_STORAGE_CONNECTION_STRING="%AZURE_STORAGE_CONNECTION_STRING%" openvino/model_server:latest --model_path az://ovms/dogcat --model_name dogcat --port 9000
 ```
 #### NotebookからOpenVINO Model Serverへアクセス
-前のコンテナ（Jupyter Lab実行中）のNotebook（how_to_optimize_custom_model_with_openvino.ipynb）に戻り、「【応用編】OpenVINO Model Serverを使う」から再開ください。
+前のコンテナ（Jupyter Lab実行中）のNotebook（grpc_client.ipynb）に戻り、「【応用編】OpenVINO Model Serverを使う」から再開ください。
+
 ## License / ライセンス
 このプロジェクトは Apache 2.0の元にライセンスされています。
