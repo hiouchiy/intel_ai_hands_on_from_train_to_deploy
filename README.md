@@ -70,7 +70,7 @@ git clone https://github.com/hiouchiy/intel_ai_hands_on_from_train_to_deploy.git
 ```
 #### Jupyter Labの起動
 ```Bash
-KMP_AFFINITY=granularity=fine,compact,1,0 KMP_BLOCKTIME=1 KMP_SETTINGS=1 OMP_NUM_THREADS=物理コア数 jupyter lab --ip=0.0.0.0 --no-browser --allow-root
+jupyter lab --ip=0.0.0.0 --no-browser --allow-root
 ```
 #### WebブラウザからJupyter Labにアクセス
 前のコマンド実行すると以下のようなログが出力されまして、最後にローカルホスト（127.0.0.1）のトークン付きURLが表示されるはずです。こちらをWebブラウザにペーストしてアクセスください。リモートアクセスされている場合はIPアドレスをサーバーのホストOSのIPアドレスに変更してください。
