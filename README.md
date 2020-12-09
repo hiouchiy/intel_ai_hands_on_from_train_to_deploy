@@ -105,7 +105,7 @@ Jupyter Lab上で「intel_ai_hands_on_from_train_to_deploy」フォルダーに�
 docker pull openvino/model_server:latest
 ```
 #### OpenVINOの事前学習済みモデルをダウンロード
-ハンズオンの中で使用した日本語の手書き文字認識用の事前学習済みモデルをダウンロードして、ホストOS上の適当なフォルダに格納しておく
+ハンズオンの中で使用した犬猫の分類モデルをWep APIとしてデプロイします。
 #### OpenVINO Model Serverを起動
 各パラメータの意味については[こちら](https://github.com/openvinotoolkit/model_server/blob/main/docs/docker_container.md)を参照ください。
 ```Bash
@@ -120,7 +120,7 @@ docker run --rm -d -p 9000:9000 -e AZURE_STORAGE_CONNECTION_STRING="%AZURE_STORA
 docker run --rm -d -p 9000:9000 -e AZURE_STORAGE_CONNECTION_STRING="%AZURE_STORAGE_CONNECTION_STRING%" openvino/model_server:latest --model_path az://ovms/dogcat --model_name dogcat --port 9000
 ```
 #### NotebookからOpenVINO Model Serverへアクセス
-前のコンテナ（Jupyter Lab実行中）のNotebook（grpc_client.ipynb）に戻り、「【応用編】OpenVINO Model Serverを使う」から再開ください。
+前のコンテナ（Jupyter Lab実行中）のNotebookに戻り、grpc_client.ipynbを開き、プログラムを実行下さい。
 
 ## License / ライセンス
 このプロジェクトは Apache 2.0の元にライセンスされています。
